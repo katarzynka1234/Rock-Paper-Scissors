@@ -17,7 +17,7 @@
     "build:autoprefixer": "autoprefixer-cli css/style.css",
     "watch": "npm-run-all build -p watch:*",
     "watch:sassprefixer": "onchange scss/*.scss -- npm-run-all sassprefixer:*",
-    "sassprefixer:sass": "node-sass --output-style expanded --source-map true -o css scss",
+    "sassprefixer:sass": "node-sass --output-style expanded --source-map true -o css/*css ssss/*scss",
     "sassprefixer:autoprefixer": "autoprefixer-cli css/style.css",
     "watch:browser-sync": "browser-sync start --server --files 'css/*.css' '*.html'"
   },
@@ -37,13 +37,13 @@
     "browser-sync": "^2.23.6",
     "globstar": "^1.0.0",
     "jshint": "^2.9.5",
+    "node-sass": "^4.8.3",
     "npm-run-all": "^4.1.2",
     "nu-html-checker": "^0.1.0",
     "onchange": "^3.3.0"
   },
   "dependencies": {
     "mkdirp": "^0.5.1",
-    "node-sass": "^4.8.3",
     "rimraf": "^2.6.2"
   }
 }
