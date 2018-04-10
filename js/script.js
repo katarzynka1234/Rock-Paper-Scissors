@@ -57,8 +57,8 @@ function newGame() {
     setGameElements();
     playerNameElem.innerHTML = player.name;
     setGamePoints(); 
+    
   }
-
 }
 
 function playerPick(playerPick) {
@@ -86,22 +86,7 @@ var playerPickElem = document.getElementById('js-playerPick'),
 }
 
 
-
-function playerPick(playerPick) {
-    var computerPick = getComputerPick();
-
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
-
-    checkRoundWinner(playerPick, computerPick);
-}
-
-function setGamePoints() {
-    playerPointsElem.innerHTML = player.score;    
-    computerPointsElem.innerHTML = computer.score;
-}
-
-
+// Rozstrzygnięcie rundy (rozpatrujemy przypadek ze gracz wygrał i dla niego sprawdzamy warunek)
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
 
@@ -119,9 +104,35 @@ function checkRoundWinner(playerPick, computerPick) {
 
     if (winnerIs == 'player') {
         playerResultElem.innerHTML = "Win!";
-        player.score++;
+        console.log(player.score++);
     } else if (winnerIs == 'computer') {
         computerResultElem.innerHTML = "Win!";
-        computer.score++;
+        console.log(computer.score++);
     }
 }
+
+function playerPick(playerPick) {
+    var computerPick = getComputerPick();
+
+    playerPickElem.innerHTML = playerPick;
+    computerPickElem.innerHTML = computerPick;
+
+    checkRoundWinner(playerPick, computerPick);
+}
+
+function setGamePoints() {
+    playerPointsElem.innerHTML = player.score;    
+    computerPointsElem.innerHTML = computer.score;
+}
+
+
+function checkFinishResult() {
+	if (player.score === 10) {
+		gameState = 'ended';
+		alert('Game over! ' + player.name + ', you win!');
+	} else if (computer.score === 10) {
+		gameState = 'ended';
+		alert('Game over! Computer win!');
+	}
+}
+checkFinishResult();
