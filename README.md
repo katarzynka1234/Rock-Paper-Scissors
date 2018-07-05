@@ -1,1 +1,1 @@
-# zadanie_9_7
+# Simple aplication - game Rock Paper Scissors
