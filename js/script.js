@@ -9,7 +9,7 @@ var pickRock = document.getElementById('js-playerPick_rock'),
 
 pickRock.addEventListener('click', function () { playerPick('kamień') });
 pickPaper.addEventListener('click', function () { playerPick('papier') });
-pickScissors.addEventListener('click', function () { playerPick('scyzoryk') });
+pickScissors.addEventListener('click', function () { playerPick('nożyce') });
 
 //GAME LOGIC
 var gameState = 'notStarted', //started // ended
@@ -93,8 +93,8 @@ function checkRoundWinner(playerPick, computerPick) {
     if (playerPick == computerPick) {
         winnerIs = 'noone'; // remis
     } else if (
-        (computerPick == 'kamień' && playerPick == 'scissors') ||
-        (computerPick == 'scyzoryk' && playerPick == 'papier') ||
+        (computerPick == 'kamień' && playerPick == 'nożyce') ||
+        (computerPick == 'nożyce' && playerPick == 'papier') ||
         (computerPick == 'papier' && playerPick == 'kamień')) {
 
         winnerIs = 'computer';
@@ -131,7 +131,7 @@ function setGamePoints() {
 function checkFinishResult() {
     if (player.score === 10) {
         gameState = 'ended';
-        alert('Game over! ' + player.name + ',zdobyłaś/eś 10pkt. Wyrgana jest Twoja! :)');
+        alert('Wygrana jest Twoja! ' + player.name + ' ,zdobyłaś/eś 10pkt. :)');
         setGameElements();
     } else if (computer.score === 10) {
         gameState = 'ended';
