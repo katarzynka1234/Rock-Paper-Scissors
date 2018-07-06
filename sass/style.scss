@@ -1,8 +1,42 @@
 body {
 	margin : 0;
 	padding: 0;
+	background-image: url(../images/board-bright-design-235994.jpg);
+	background-size: cover;
 }
-
+	
 .container {
 	margin-top: 40px;
+}
+
+.btn {
+	border: 1px solid gray;
+}
+
+.header {
+	background-color: rgba(255, 255, 255, 0.6);
+	padding-bottom: 20px;
+
+}
+
+.pick-box {
+	button {
+		width: 100px;
+		height: 100px;	
+		margin: 5px;
+		i.fa {
+			font-size: 30px;
+		}
+	}
+}
+
+.results-box {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	span.badge {
+		font-size: 20px;
+		border-radius: 0;
+	}
 }
