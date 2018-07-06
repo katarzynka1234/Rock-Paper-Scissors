@@ -7,9 +7,9 @@ var pickRock = document.getElementById('js-playerPick_rock'),
     pickPaper = document.getElementById('js-playerPick_paper'),
     pickScissors = document.getElementById('js-playerPick_scissors');
 
-pickRock.addEventListener('click', function () { playerPick('rock') });
-pickPaper.addEventListener('click', function () { playerPick('paper') });
-pickScissors.addEventListener('click', function () { playerPick('scissors') });
+pickRock.addEventListener('click', function () { playerPick('kamień') });
+pickPaper.addEventListener('click', function () { playerPick('papier') });
+pickScissors.addEventListener('click', function () { playerPick('scyzoryk') });
 
 //GAME LOGIC
 var gameState = 'notStarted', //started // ended
@@ -34,7 +34,7 @@ function setGameElements() {
             resultsElem.style.display = 'block';
             break;
         case 'ended':
-            newGameBtn.innerText = 'Play again!';
+            newGameBtn.innerText = 'Zagraj jeszcze raz!';
         case 'notStarted':
         default:
             newGameElem.style.display = 'block';
@@ -49,7 +49,7 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
     computerPointsElem = document.getElementById('js-computerPoints');
 
 function newGame() {
-    player.name = prompt('Please enter your name', 'player name');
+    player.name = prompt('Wpisz swoje imię', 'Imię gracza');
     if (player.name) {
         player.score = computer.score = 0;
         gameState = 'started';
@@ -67,7 +67,7 @@ var x = Math.random();
 Math.floor(Math.random() * 3);
 
 function getComputerPick() {
-    var possiblePicks = ['rock', 'paper', 'scissors'];
+    var possiblePicks = ['kamień', 'papier', 'nożyce'];
     return possiblePicks[Math.floor(Math.random() * 3)];
 }
 
@@ -93,18 +93,18 @@ function checkRoundWinner(playerPick, computerPick) {
     if (playerPick == computerPick) {
         winnerIs = 'noone'; // remis
     } else if (
-        (computerPick == 'rock' && playerPick == 'scissors') ||
-        (computerPick == 'scissors' && playerPick == 'paper') ||
-        (computerPick == 'paper' && playerPick == 'rock')) {
+        (computerPick == 'kamień' && playerPick == 'scissors') ||
+        (computerPick == 'scyzoryk' && playerPick == 'papier') ||
+        (computerPick == 'papier' && playerPick == 'kamień')) {
 
         winnerIs = 'computer';
     }
 
     if (winnerIs == 'player') {
-        playerResultElem.innerHTML = "Win!";
+        playerResultElem.innerHTML = "Wygrana!";
         player.score++;
     } else if (winnerIs == 'computer') {
-        computerResultElem.innerHTML = "Win!";
+        computerResultElem.innerHTML = "Wygrana!";
         computer.score++;
     }
 
@@ -131,11 +131,11 @@ function setGamePoints() {
 function checkFinishResult() {
     if (player.score === 10) {
         gameState = 'ended';
-        alert('Game over! ' + player.name + ', you win!');
+        alert('Game over! ' + player.name + ',zdobyłaś/eś 10pkt. Wyrgana jest Twoja! :)');
         setGameElements();
     } else if (computer.score === 10) {
         gameState = 'ended';
-        alert('Game over! Computer win!');
+        alert('Game over! Computer zdobył 10 pkt i wygrał!');
         setGameElements();
     }
 }
